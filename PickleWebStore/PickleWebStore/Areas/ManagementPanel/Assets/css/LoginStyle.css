@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Calibri;
+    background-size: cover;
+    background-color: #DDDDDD;
+    background-image: url('../pageimages/bck2.jpg');
+}
+.panel {
+    width: 400px;
+    padding: 40px 20px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 15px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+}
+.row {
+    padding: 15px 0;
+}
+.title {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #00008B;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-align: center
+}
+.textBox {
+    background-color: #EFEFEF;
+    font-size:20px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px 7px;
+    border: none;
+}
+.validation-summary-errors {
+    padding: 1px;
+    background-color: #ff5f5f;
+    color: white;
+    border-radius: 5px;
+    font-weight: 100;
+}
+
+    .validation-summary-errors div {
+        padding: 20px;
+    }
+
+    .validation-summary-errors ul {
+        list-style-type: none;
+    }
+
+        .validation-summary-errors ul li {
+            margin-bottom: 5px;
+        }
+.button {
+    width:100%;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 4px;
+}
+    .button:hover {
+        background-color: #45a049;
+    }

@@ -1,0 +1,108 @@
+﻿.pageContent {
+    
+}
+    .pageContent .formContent h3 {
+        font-family: Calibri;
+        font-weight: 100;
+        font-size: 22px
+    }
+
+.pagetitle {
+    border: 1px solid silver;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: #f3f3f3;
+    padding: 0 20px;
+}
+
+.formContent {
+    border: 1px solid silver;
+    padding: 20px;
+}
+
+    .formContent .left {
+        float: left;
+        width: 45%;
+    }
+
+    .formContent .right {
+        float: right;
+        width: 45%;
+    }
+
+.row {
+    padding: 7px 0;
+}
+
+.control-label {
+    display: block;
+}
+
+.form-control {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.text-danger {
+    color: darkred;
+}
+
+.btn-default {
+    background-color: #059669;
+    color: white;
+    padding: 10px 60px;
+    border: none;
+    text-decoration:none;
+}
+
+    .btn-default:hover {
+        background-color: #03bb82;
+    }
+
+.btn-delete {
+    background-color: #980e0e;
+    color: white;
+    padding: 10px 60px;
+    border: none;
+}
+
+    .btn-delete:hover {
+        background-color: #dc3333;
+    }
+
+
+.formfooter {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border: 1px solid silver;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius:10px;
+}
+
+    .table th, .table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+

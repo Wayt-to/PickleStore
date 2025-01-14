@@ -1,0 +1,44 @@
+﻿@{ 
+    PickleWebStore.Models.Manager manager = Session["manager"] as PickleWebStore.Models.Manager;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Areas/ManagementPanel/Assets/css/MainStyle.css" rel="stylesheet" />
+    <link href="~/Areas/ManagementPanel/Assets/css/FormStyle.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pickle Shop</title>
+    @RenderSection("styles", false)
+
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Yönetim Paneli</h2>
+        <ul>
+            <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
+            <li><a href="@Url.Action("Index","Members")">Üyeler</a></li>
+            <li><a href="@Url.Action("Index","Products")">Ürünler</a></li>
+            <li><a href="@Url.Action("Index","Categories")">Kategoriler</a></li>
+            <li><a href="@Url.Action("Index","Brands")">Markalar</a></li>
+            <li><a href="@Url.Action("Index","Managers")">Yöneticiler</a></li>
+
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="topbar">
+            <div class="userPanel">@manager.Name @manager.Surname</div>
+        </div>
+        <div class="content">
+            @RenderBody()
+        </div>
+        
+    </div>
+
+
+</body>
+</html>

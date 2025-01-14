@@ -1,0 +1,126 @@
+﻿@model PickleWebStore.Models.Product
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+<div class="pageContent">
+    <div class="pagetitle" style="border-bottom:1px solid silver; ">
+        <h2 style="font-family:'Agency FB'">Yönetim Paneli</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="formContent">
+        <div class="row" style="border-bottom:1px solid silver;margin-top:-15px; ">
+            <div class="countBox" style="background: linear-gradient(45deg, #FF6F61, #D32F2F); margin-left: 80px">
+                Ürün Sayısı <span class="Count"> @ViewBag.ProductCount</span>
+            </div>
+            <div class="countBox" style="background: linear-gradient(45deg, #FFB74D, #F57C00); ">
+                Kategori Sayısı <span class="Count"> @ViewBag.CategoryCount</span>
+            </div>
+            <div class="countBox" style="background: linear-gradient(45deg, #4FC3F7, #0288D1); ">
+                Marka Sayısı <span class="Count">@ViewBag.BrandCount</span>
+            </div>
+            <div class="countBox" style="background: linear-gradient(45deg, #BA68C8, #7B1FA2); ">
+                Üye Sayısı  <span class="Count">@ViewBag.MemberCount</span>
+            </div>
+            <div class="countBox" style="background: linear-gradient(45deg, #66BB6A, #2E7D32); ">
+                Sipariş Sayısı
+                <span class="Count">@ViewBag.SalesCount</span>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div>
+
+            @if (@ViewBag.XmlChanged != null)
+            {
+
+                if (ViewBag.NewData != null && ViewBag.NewData.Count > 0)
+                {
+                    <h3 style="margin-top: 10px;">Sistemde ürün kataloğu güncellemesi mevcut:</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>İsim</th>
+                                <th>Barkod</th>
+                                <th>Marka</th>
+                                <th>Kategori</th>
+                                <th>Fiyat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var node in ViewBag.NewData)
+                            {
+                                <tr>
+                                    <td>@node["Name"].InnerText</td>
+                                    <td>@node["Barcode"].InnerText</td>
+                                    <td>@node["Brand"].InnerText</td>
+                                    <td>@node["Category"].InnerText</td>
+                                    <td>@node["Price"].InnerText ₺</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    using (Html.BeginForm("AddNewData", "Home"))
+                    {
+                        <div>
+                            <input type="submit" name="btn_update" value="Güncelle" class="btn-default" style="float:right" />
+                        </div>
+                    }
+
+                    <div style="clear:both"></div>
+                }
+                if (ViewBag.Removed.Count > 0)
+                {
+                    <h3 style="font-family:Verdana;font-weight:200;margin-top:10px;">Ana bayi bazı ürünleri satıştan kaldırdı:</h3>// login control sonrası değişecek!!!
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>İsim</th>
+                                <th>Barkod</th>
+                                <th>Marka</th>
+                                <th>Kategori</th>
+                                <th>Fiyat</th>
+                                <th>Stok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (PickleWebStore.Models.Product product in ViewBag.Removed)
+                            {
+                                <tr>
+                                    <td>@product.Name</td>
+                                    <td>@product.Barcode</td>
+                                    <td>@product.brand.Name</td>
+                                    <td>@product.category.Name</td>
+                                    <td>@product.Price ₺</td>
+                                    <td>@product.Stock</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    using (Html.BeginForm("RemoveProduct", "Home"))
+                    {
+                        <div>
+                            <input type="submit" name="btn_delete" value="Ürünleri Kaldır" class="btn-delete" style="float:right;" />
+                        </div>
+                    }
+                    <div style="clear:both">Tablodaki fiyatlar %20 kar marjı konmuş fiyatlardır*</div>
+                }
+
+            }
+            else
+            {
+                <h3 style="font-family:Verdana;font-weight:200;margin-top:10px;">Sistem güncel. İyi çalışmalar! </h3>// login control sonrası değişecek!!!
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

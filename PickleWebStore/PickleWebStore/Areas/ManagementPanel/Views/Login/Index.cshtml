@@ -1,0 +1,42 @@
+﻿@model PickleWebStore.Areas.ManagementPanel.Data.ManagerLoginViewModel
+@{
+    Layout = null;
+}
+<link href="~/Areas/ManagementPanel/Assets/css/LoginStyle.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="panel">
+        <div class="title">
+            <h1>Pickle Store </h1>
+            <h1>Yönetici Girişi </h1>
+        </div>
+        @using (Html.BeginForm())
+        {
+
+
+            <div style="margin-top:50px;" class="row">
+                @Html.EditorFor(x => x.Mail, new { htmlAttributes = new { @class = "textbox", @placeholder = "Mail" } })
+            </div>
+            <div class="row">
+                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "textbox", @placeholder = "Şifre" } })
+            </div>
+            <div class="row">
+                <input type="submit" class="button" value="Giriş Yap" />
+            </div>
+            @Html.ValidationSummary();
+            if (ViewBag.warning != null)
+            {
+                <div class="validation-summary-errors">
+                    <div>@ViewBag.warning</div>
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>

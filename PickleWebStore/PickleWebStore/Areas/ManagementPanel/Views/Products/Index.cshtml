@@ -1,0 +1,100 @@
+﻿@model IEnumerable<PickleWebStore.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Ürünler</label>
+</div>
+
+<div class="pageContent">
+    <div class="pagetitle">
+        @Html.ActionLink("Ürün Oluştur", "Create")
+        <h2 style="margin-top:15px;">Ürün Listesi</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th style="border-left:none">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.brand.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Barcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReorderLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th>Seçenekler</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="border-left:none">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.brand.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Barcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReorderLevel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.ID },new {@class="btnedit"}) 
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID },new { @class = "btndetail" }) 
+                        @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btndelete" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a href="@Url.Action("Index","Product")">Tüm Ürünleri Listele</a>
+    </div>
+</div>
+
+@section styles
+    {
+    <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
+    }

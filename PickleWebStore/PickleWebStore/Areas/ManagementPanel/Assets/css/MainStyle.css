@@ -1,0 +1,116 @@
+﻿*,h1,h2,h3,h4,h5,h6{
+    padding:0;
+    margin:0;
+}
+body {
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidebar {
+    font-family: 'Agency FB';
+    font-weight: 500;
+    width: 250px;
+    height: 1500px;
+    background-color: #3051D4;
+    color: white;
+    border-left: 1px;
+}
+    .sidebar h2 {
+        text-align: center;
+        padding: 30px;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        
+    }
+
+        .sidebar ul li {
+            margin: 7px 0;
+            font-size: 28px;
+            font-family: 'Agency FB';
+            font-weight:500;
+        }
+
+            .sidebar ul li a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                padding: 10px 20px;
+                background-color: #4562D7;
+            }
+
+                .sidebar ul li a:hover {
+                    background-color: #4F74FF;
+                }
+.main-content {
+    width: 100%;
+    font-family: Calibri;
+
+}
+
+    .main-content h1 {
+        
+    }
+    .content{
+        padding:10px;
+    }
+.topbar {
+    width: 100%;
+    background: linear-gradient(45deg, #3051D4, #5f86f3);
+    height: 70px;
+}
+.breadCrumb {
+    padding: 10px;
+    border: 1px solid #3051D4;
+    border-radius: 10px;
+    background-color: #f8f8f8
+}
+
+    .breadCrumb a {
+        color: #4562D7;
+        text-decoration: none;
+    }
+
+.pageContent {
+    padding: 20px;
+}
+
+.userPanel img {
+    width: 120px;
+}
+
+.userPanel {
+    padding: 15px;
+    float:right;
+    margin-top:3px;
+    color:white;
+}
+
+    .userPanel a {
+        text-decoration: none;
+        color: white;
+    }
+.countBox {
+    float: left;
+    width: 15%;
+    border: 1px solid silver;
+    border-radius: 10px;
+    padding: 30px 10px;
+    margin: 10px;
+    color: white;
+    font-size: 15pt;
+    font-weight: 900;
+}
+    .countBox .Count {
+    display: block;
+    font-size: 48px; 
+    margin-top: 10px;
+    }
+
+
+

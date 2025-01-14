@@ -1,0 +1,242 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\assets\\css\\tablestyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\assets\\css\\tablestyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\assets\\css\\formstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\assets\\css\\formstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\assets\\css\\mainstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\assets\\css\\mainstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\areas\\managementpanel\\assets\\css\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\areas\\managementpanel\\assets\\css\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|c:\\users\\61vah\\source\\repos\\picklewebstore\\picklewebstore\\models\\generaldatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{536459B1-DF70-4200-90EE-6A09E3012DE0}|PickleWebStore\\PickleWebStore.csproj|solutionrelative:picklewebstore\\models\\generaldatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 596,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormStyle.css",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\FormStyle.css",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\FormStyle.css",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\FormStyle.css",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\FormStyle.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-11T19:15:13.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainStyle.css",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\MainStyle.css",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\MainStyle.css",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\MainStyle.css",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\MainStyle.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-03T18:49:30.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TableStyle.css",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\TableStyle.css",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\TableStyle.css",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\TableStyle.css",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\TableStyle.css",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-14T01:27:13.536Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 801,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Delete.cshtml",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Delete.cshtml",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Delete.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-14T02:06:30.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-14T01:55:19.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-14T01:27:55.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Index.cshtml",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-14T01:12:52.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAcwIEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T01:10:17.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Edit.cshtml",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Views\\Products\\Edit.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-14T01:29:34.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "PickleWebStore\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Models\\Product.cs",
+              "RelativeToolTip": "PickleWebStore\\Models\\Product.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T01:11:18.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GeneralDataModel.cs",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Models\\GeneralDataModel.cs",
+              "RelativeDocumentMoniker": "PickleWebStore\\Models\\GeneralDataModel.cs",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Models\\GeneralDataModel.cs",
+              "RelativeToolTip": "PickleWebStore\\Models\\GeneralDataModel.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowCsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T16:59:35.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginStyle.css",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\LoginStyle.css",
+              "RelativeDocumentMoniker": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\LoginStyle.css",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleWebStore\\PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\LoginStyle.css",
+              "RelativeToolTip": "PickleWebStore\\Areas\\ManagementPanel\\Assets\\css\\LoginStyle.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-13T23:25:49.02Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
