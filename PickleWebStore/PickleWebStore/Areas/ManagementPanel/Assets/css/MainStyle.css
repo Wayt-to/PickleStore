@@ -61,7 +61,7 @@ body {
     }
 .topbar {
     width: 100%;
-    background: linear-gradient(45deg, #3051D4, #5f86f3);
+    background: linear-gradient(45deg, #3051D4, #3100fc);
     height: 70px;
 }
 .breadCrumb {

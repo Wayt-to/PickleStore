@@ -1,8 +1,5 @@
 using PickleWebStore.Models;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
 
 namespace PickleWebStore
 {
@@ -20,6 +17,8 @@ namespace PickleWebStore
         public DbSet<Member> Members { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<Favourite> Favourites { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

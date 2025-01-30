@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using PickleWebStore.Areas.ManagementPanel.Filters;
+using PickleWebStore.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using PickleWebStore;
-using PickleWebStore.Areas.ManagementPanel.Filters;
-using PickleWebStore.Models;
 
 namespace PickleWebStore.Areas.ManagementPanel.Controllers
 {
@@ -20,17 +15,31 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Managers
         public ActionResult Index()
         {
-            return View(db.Managers.ToList());
+            return View(db.Managers.Where(m => m.IsActive == true).ToList());
         }
+        public ActionResult AllIndex()
+        {
+            return View(db.Managers.Where(m => m.IsActive == false).ToList());
+        }
+
 
         // GET: ManagementPanel/Managers/Details/5
         public ActionResult Details(int? id)
         {
+
+            Manager m = Session["manager"] as Manager;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Manager manager = db.Managers.Find(id);
+            if (m.Type != "admin")
+            {
+                if (id != m.ID)
+                {
+                    return RedirectToAction("Index", "System");
+                }
+            }
             if (manager == null)
             {
                 return HttpNotFound();
@@ -64,9 +73,17 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Managers/Edit/5
         public ActionResult Edit(int? id)
         {
+            Manager m = Session["manager"] as Manager;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (m.Type != "admin")
+            {
+                if (id != m.ID)
+                {
+                    return RedirectToAction("Index", "System");
+                }
             }
             Manager manager = db.Managers.Find(id);
             if (manager == null)
@@ -95,28 +112,20 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Managers/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Manager manager = db.Managers.Find(id);
-            if (manager == null)
-            {
-                return HttpNotFound();
-            }
-            return View(manager);
-        }
-
-        // POST: ManagementPanel/Managers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Manager manager = db.Managers.Find(id);
-            db.Managers.Remove(manager);
+            manager.IsActive = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult ReDelete(int? id)
+        {
+            Manager manager = db.Managers.Find(id);
+            manager.IsActive = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

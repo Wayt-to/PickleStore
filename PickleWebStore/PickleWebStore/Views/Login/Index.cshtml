@@ -1,0 +1,57 @@
+﻿@model PickleWebStore.Models.Member
+@{
+    ViewBag.Title = "Giriş yap";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş yap</title>
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+</head>
+<body class="loginback">
+    <div >
+        <div class="loginPanel">
+            <a style="text-decoration:none;font-size:40pt;float:left;margin-left:15px;color:darkolivegreen" href="@Url.Action("Index","Home")"><</a>
+            @using (Html.BeginForm())
+            {
+                <img src="~/Assets/SiteImages/STORE.png" width="150"  />
+
+                <div class="row">
+                    @Html.LabelFor(x => x.Username)
+                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Username)
+                </div>
+                <div class="row">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+                if (ViewBag.Warning != null)
+                {
+                    <div class="warningMessage">
+                        <p>@ViewBag.Warning</p>
+                    </div>
+                }
+
+                if (ViewBag.Success != null)
+                {
+                    <div class="successMessage">
+                        <p>@ViewBag.Success</p>
+                    </div>
+                }
+                <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                    <button type="submit" class="btn">Giriş Yap</button>
+                </div>
+
+                <div class="row" style="text-align: center;margin-bottom:30px;"><a style="text-decoration:none;color:darkolivegreen;" href="@Url.Action("Index","Register")">Hemen Kayıt Ol!</a></div>
+
+            }
+        </div>
+
+    </div>
+</body>
+</html>

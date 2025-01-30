@@ -5,78 +5,106 @@
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Üyeler</label>
+</div>
+<div class="pageContent">
+    <div class="pagetitle" style="background: linear-gradient(#2e65fc, #3100fc); color: white ">
+        <h2 style="margin:20px;">Üye Listesi</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th style="border-left:none">
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastLoginTime)
+                </th>
+                <th>
+                    Aktiflik
+                </th>
+                <th>Seçenekler</th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastLoginTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="border-left:none;">
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastLoginTime)
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Status", "Members", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.Hidden("id", item.ID);
+                            @Html.Hidden("isActive", item.IsActive);
+                            if (item.IsActive)
+                            {
+                                <button type="submit" class="btnedit" style="width:110px;margin-bottom:5px" >
+                                    <span>Aktif</span>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btndetail" style="background-color: #c89404; width: 110px; margin-bottom: 5px" >
+                                    <span>Pasif</span>
+                                </button>
+                            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastLoginTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+                        }
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID }, new { @class = "btndetail" })
+                        @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btndelete" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a class="btn-back" style="font-size: 14pt; margin: 10px; padding: 4px; background-color: #ce4747; " href="@Url.Action("AllIndex","Members")">Silinmiş Üyeleri Listele</a>
+    </div>
+</div>
+
+@section styles
+    {
+    <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
 }
-
-</table>

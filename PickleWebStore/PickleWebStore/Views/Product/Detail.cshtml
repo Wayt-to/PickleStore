@@ -1,0 +1,145 @@
+﻿@model PickleWebStore.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    List < PickleWebStore.Models.Product > others= ViewBag.Others;
+    List<PickleWebStore.Models.Product> othersCat = ViewBag.OthersCat;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Model.Name</title>
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="breadCrumb">
+        <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+        <a href="@Url.Action("Category", "Home", new {id = Model.Category_ID})">@Model.category.Name </a>>
+        <a href="@Url.Action("Brand", "Home", new {id = Model.Brand_ID})">@Model.brand.Name </a>>
+        <label>@Model.Name</label>
+    </div>
+    <div class="mainBase">
+        <div class="detailBase">
+            <div class="image">
+                <img src="~/Assets/ProductImages/@Model.Image" />
+            </div>
+            <div class="detail" style="margin-top:20px;">
+                <a class="brand" href="@Url.Action("Brand", "Home", new {id = Model.Brand_ID})">@Model.brand.Name</a>
+
+                <h1 class="urunbaslik">@Model.Name</h1>
+
+                <div style="margin-top:15px">
+
+                    <label class="indirimli">
+                        @Model.Price,00 ₺
+                    </label>
+                </div>
+                <div class="detailCategory">
+                    Kategori : 
+                    <a href="@Url.Action("Category", "Home", new { id = Model.Category_ID })">@Model.category.Name</a>
+                    <a href="@Url.Action("AddToFavourites", "Product", new { productId = Model.ID })" style="margin-left:180px">
+                        @if (ViewBag.IsFavorite == true)
+                        {
+                            <img src="~/Assets/SiteImages/heart.png" width="16" style="margin-bottom:-4px;margin-left:-10px" />
+                            <label>Favorilerden Kaldır</label>
+                        }
+                        else
+                        {
+                            <img src="~/Assets/SiteImages/emptyhearth.png" width="16" style="margin-bottom: -4px;; margin-left: -10px" />
+                            <label>Favorilere Ekle</label>
+                        }
+                    </a>
+                </div>
+                <div class="detailsummary">
+                    @Model.Description
+                </div>
+
+                <div class="detailquantity">
+                    @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.Hidden("id", Model.ID)
+                        <input type="number" name="quantity" class="quantity" value="1" min="1" />
+                        <input type="submit" class="addtoCart" value="Sepete Ekle" />
+                    }
+                </div>
+
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+        <div style="clear:both"></div>
+
+        @if (others.Count() > 0)
+        {
+            <div class="productBase">
+                <h3 style="display:flex;justify-content:center;margin-bottom:20px">Markanın Diğer Ürünleri</h3>
+                <div style="justify-content:center;display:flex;">
+                    @if (Model != null)
+                    {
+                        foreach (var item in others)
+                        {
+
+                            <div class="product">
+                                <a href="@Url.Action("Detail","Product", new {id=item.ID})" style="text-decoration:none">
+                                    <div class="image">
+                                        <img src="~/Assets/ProductImages/@item.Image" />
+                                    </div>
+                                    <div class="name">
+                                        @item.Name
+                                    </div>
+                                    <div class="price">
+                                        @item.Price ₺ 
+                                    </div>
+                                </a>
+                                <div class="cartAdd">
+                                    <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = item.ID, quantity = 1 })">Sepete Ekle</a>
+                                </div>
+                            </div>
+                        }
+                        <div style="clear:both"></div>
+                    }
+                </div>
+
+            </div>
+        }
+        @if (othersCat.Count() > 0)
+        {
+            <div class="productBase">
+                <h3 style="display:flex;justify-content:center;margin-bottom:20px">Şunları Sevebilirsiniz!</h3>
+                <div style="justify-content:center;display:flex;">
+                    @if (Model != null)
+                    {
+                        foreach (var item in othersCat)
+                        {
+
+                            <div class="product">
+                                <a href="@Url.Action("Detail","Product", new {id=item.ID})" style="text-decoration:none">
+                                    <div class="image">
+                                        <img src="~/Assets/ProductImages/@item.Image" />
+                                    </div>
+                                    <div class="name">
+                                        @item.Name
+                                    </div>
+                                    <div class="price">
+                                        @item.Price ₺ 
+                                    </div>
+                                </a>
+                                <div class="cartAdd">
+                                    <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = item.ID, quantity = 1 })">Sepete Ekle</a>
+                                </div>
+                            </div>
+                        }
+                        <div style="clear:both"></div>
+                    }
+                </div>
+
+            </div>
+        }
+
+    </div>
+    
+
+
+</body>
+</html>
+

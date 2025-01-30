@@ -34,10 +34,9 @@
 
             @if (@ViewBag.XmlChanged != null)
             {
-
                 if (ViewBag.NewData != null && ViewBag.NewData.Count > 0)
                 {
-                    <h3 style="margin-top: 10px;">Sistemde ürün kataloğu güncellemesi mevcut:</h3>
+                    <h3 style="margin: 10px;">Sistemde ürün kataloğu güncellemesi mevcut:</h3>
                     <table class="table">
                         <thead>
                             <tr>
@@ -64,7 +63,7 @@
                     using (Html.BeginForm("AddNewData", "Home"))
                     {
                         <div>
-                            <input type="submit" name="btn_update" value="Güncelle" class="btn-default" style="float:right" />
+                            <input type="submit" name="btn_update" value="Güncelle" class="btn-default" style="float:right; margin-top:15px;" />
                         </div>
                     }
 
@@ -72,7 +71,7 @@
                 }
                 if (ViewBag.Removed.Count > 0)
                 {
-                    <h3 style="font-family:Verdana;font-weight:200;margin-top:10px;">Ana bayi bazı ürünleri satıştan kaldırdı:</h3>// login control sonrası değişecek!!!
+                    <h3 style="font-family:Verdana;font-weight:200;margin-top:10px;">Ana bayi bazı ürünleri satıştan kaldırdı:</h3>
                     <table class="table">
                         <thead>
                             <tr>
@@ -104,7 +103,7 @@
                             <input type="submit" name="btn_delete" value="Ürünleri Kaldır" class="btn-delete" style="float:right;" />
                         </div>
                     }
-                    <div style="clear:both">Tablodaki fiyatlar %20 kar marjı konmuş fiyatlardır*</div>
+                    <div style="clear:both"></div>
                 }
 
             }

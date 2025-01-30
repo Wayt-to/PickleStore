@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -103,6 +104,21 @@
     <Content Include="Areas\ManagementPanel\Assets\css\TableStyle.css" />
     <Content Include="Areas\ManagementPanel\Assets\PageImages\bck.jpg" />
     <Content Include="Areas\ManagementPanel\Assets\PageImages\bck2.jpg" />
+    <Content Include="Assets\css\UIMainStyle.css" />
+    <Content Include="Assets\Icons\cart.png" />
+    <Content Include="Assets\SiteImages\bck.jpg" />
+    <Content Include="Assets\SiteImages\emptyhearth.png" />
+    <Content Include="Assets\SiteImages\heart.png" />
+    <Content Include="Assets\SiteImages\image.png" />
+    <Content Include="Assets\SiteImages\jar1.gif" />
+    <Content Include="Assets\SiteImages\jar2.gif" />
+    <Content Include="Assets\SiteImages\jar3.gif" />
+    <Content Include="Assets\SiteImages\jars1.png" />
+    <Content Include="Assets\SiteImages\jars2.png" />
+    <Content Include="Assets\SiteImages\jars3.png" />
+    <Content Include="Assets\SiteImages\pickle512.png" />
+    <Content Include="Assets\SiteImages\recycle-bin.png" />
+    <Content Include="Assets\SiteImages\STORE.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,9 +132,15 @@
     <Compile Include="Areas\ManagementPanel\Controllers\MembersController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\ProductsController.cs" />
     <Compile Include="Areas\ManagementPanel\Controllers\SalesController.cs" />
+    <Compile Include="Areas\ManagementPanel\Controllers\SystemController.cs" />
     <Compile Include="Areas\ManagementPanel\Data\ManagerLoginViewModel.cs" />
     <Compile Include="Areas\ManagementPanel\Filters\ManagerAuthorizationFilterAttribute.cs" />
     <Compile Include="Areas\ManagementPanel\ManagementPanelAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -126,12 +148,14 @@
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Favourite.cs" />
     <Compile Include="Models\GeneralDataModel.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\PickleWebDBModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,14 +169,11 @@
     <Content Include="Areas\ManagementPanel\Views\Managers\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Managers\Index.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Home\Index.cshtml" />
-    <Content Include="Areas\ManagementPanel\Views\Members\Create.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Members\Delete.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Members\Details.cshtml" />
-    <Content Include="Areas\ManagementPanel\Views\Members\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Members\Index.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Categories\Create.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Categories\Delete.cshtml" />
-    <Content Include="Areas\ManagementPanel\Views\Categories\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Categories\Index.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Brands\Create.cshtml" />
@@ -161,13 +182,31 @@
     <Content Include="Areas\ManagementPanel\Views\Brands\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Brands\Index.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Login\Index.cshtml" />
-    <Content Include="Areas\ManagementPanel\Views\Sales\Index.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Products\Create.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Products\Delete.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Products\Details.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Products\Edit.cshtml" />
     <Content Include="Areas\ManagementPanel\Views\Products\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Products\AllIndex.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Members\AllIndex.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\System\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Categories\AllIndex.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Brands\AllIndex.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Sales\Details.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Sales\Edit.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Sales\Index.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Sales\AllIndex.cshtml" />
+    <Content Include="Areas\ManagementPanel\Views\Managers\AllIndex.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Home\Brand.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,8 +217,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ManagementPanel\Assets\js\" />
+    <Folder Include="Assets\ProductImages\" />
     <Folder Include="Content\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Favourite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -213,8 +256,11 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.5.7.1\build\Microsoft.TypeScript.MSBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

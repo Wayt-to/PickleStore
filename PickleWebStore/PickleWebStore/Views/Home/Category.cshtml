@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PickleWebStore.Models.Product>
+@{
+    ViewBag.Title = ViewBag.cat;
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    string search = ViewBag.cat;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+    <title>@search</title>
+</head>
+<body>
+    <div class="breadCrumb">
+        <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+        <label >@search </label>
+    </div>
+    <div class="boxed">
+        <div class="mainBase">
+            <div>
+                <div class="productBase">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <div class="product">
+                                <a href="@Url.Action("Detail","Product", new {id=item.ID})" style="text-decoration:none">
+                                    <div class="image">
+                                        <img src="~/Assets/ProductImages/@item.Image" />
+                                    </div>
+                                    <div class="name">
+                                        @item.Name
+                                    </div>
+                                    <div class="price">
+                                        @item.Price ₺
+                                    </div>
+                                </a>
+                                <div class="cartAdd">
+                                    <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = item.ID, quantity = 1 })">Sepete Ekle</a>
+                                </div>
+                            </div>
+                        }
+                        <div style="clear:both"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

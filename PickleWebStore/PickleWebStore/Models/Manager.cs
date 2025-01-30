@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace PickleWebStore.Models
 {
@@ -10,12 +8,12 @@ namespace PickleWebStore.Models
     {
         public Manager()
         {
-            IsActive = true;IsDeleted = false;CreationTime = DateTime.Now;
+            IsActive = true; IsDeleted = false; CreationTime = DateTime.Now;
         }
         public int ID { get; set; }
         [Display(Name = "İsim")]
-        [Required(ErrorMessage ="Bu alan Boş bırakılamaz.")]
-        [StringLength(maximumLength:75,ErrorMessage ="Bu alan en fazla 75 karakter olmalıdır.")]
+        [Required(ErrorMessage = "Bu alan Boş bırakılamaz.")]
+        [StringLength(maximumLength: 75, ErrorMessage = "Bu alan en fazla 75 karakter olmalıdır.")]
         public string Name { get; set; }
         [Display(Name = "Soyisim")]
         [Required(ErrorMessage = "Bu alan Boş bırakılamaz.")]
@@ -29,9 +27,9 @@ namespace PickleWebStore.Models
         [Required(ErrorMessage = "Bu alan Boş bırakılamaz.")]
         [StringLength(maximumLength: 150, ErrorMessage = "Bu alan en fazla 150 karakter olmalıdır.")]
         public string Mail { get; set; }
-        [Display(Name ="Şifre")]
+        [Display(Name = "Şifre")]
         [Required(ErrorMessage = "Bu alan Boş bırakılamaz.")]
-        [StringLength(maximumLength: 20,MinimumLength =6, ErrorMessage = "Bu alan 6-20 karakter arasında olmalıdır.")]
+        [StringLength(maximumLength: 20, MinimumLength = 6, ErrorMessage = "Bu alan 6-20 karakter arasında olmalıdır.")]
         public string Password { get; set; }
         [Display(Name = "Kayıt Tarihi")]
         [DataType(DataType.Date)]
@@ -39,11 +37,14 @@ namespace PickleWebStore.Models
         public DateTime CreationTime { get; set; }
         [Display(Name = "Son Giriş Tarihi")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd-mm-yyyy}",ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime LastLoginTime { get; set; }
         [Display(Name = "Durum")]
         public bool IsActive { get; set; }
+        [Display(Name = "Silinmiş")]
         public bool IsDeleted { get; set; }
+        [Display(Name = "Türü")]
+        public string Type { get; set; }
         public virtual ICollection<Product> Products { get; set; }
-}
+    }
 }

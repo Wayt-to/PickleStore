@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PickleWebStore.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "AllIndex";
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,17 +9,19 @@
     <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
     <label>Ürünler</label>
 </div>
-
 <div class="pageContent">
-    <div class="pagetitle">
+    <div class="pagetitle" style="background: linear-gradient(#2e65fc, #3100fc); color: white ">
         @Html.ActionLink("Ürün Oluştur", "Create")
-        <h2 style="margin-top:15px;">Ürün Listesi</h2>
+        <h2 style="margin:20px;">Ürün Listesi</h2>
         <div style="clear:both"></div>
     </div>
     <div class="tableContent">
         <table class="table">
             <tr>
                 <th style="border-left:none">
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th >
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
@@ -41,10 +43,7 @@
                     @Html.DisplayNameFor(model => model.ReorderLevel)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IsActive)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsDeleted)
+                    Satış
                 </th>
                 <th>Seçenekler</th>
             </tr>
@@ -52,7 +51,10 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td style="border-left:none">
+                    <td style="border-left:none;text-align:center">
+                        <img src="~/Assets/ProductImages/@item.Image" width="50" />
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
@@ -73,15 +75,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.ReorderLevel)
                     </td>
-                    <td>
+                    <td style="text-align:center;">
                         @Html.DisplayFor(modelItem => item.IsActive)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IsDeleted)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Düzenle", "Edit", new { id = item.ID },new {@class="btnedit"}) 
-                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID },new { @class = "btndetail" }) 
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.ID }, new { @class = "btnedit" })
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID }, new { @class = "btndetail" })
                         @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btndelete" })
                     </td>
                 </tr>
@@ -90,11 +89,11 @@
         </table>
     </div>
     <div class="tablefooter">
-        <a href="@Url.Action("Index","Product")">Tüm Ürünleri Listele</a>
+        <a class="btn-back" style="font-size: 14pt; margin: 10px; padding: 4px; background-color: #ce4747; " href="@Url.Action("AllIndex","Products")">Silinmiş Ürünleri Listele</a>
     </div>
 </div>
 
 @section styles
     {
     <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
-    }
+}

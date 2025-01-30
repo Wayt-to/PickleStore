@@ -28,6 +28,8 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
                     if (m.IsActive)
                     {
                         Session["manager"] = m;
+                        m.LastLoginTime = DateTime.Now;
+                        db.SaveChanges();
                         return RedirectToAction("Index", "Home");
                     }
                     else

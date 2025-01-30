@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PickleWebStore.Models
 {
@@ -23,6 +19,7 @@ namespace PickleWebStore.Models
 
         [Display(Name = "Durum")]
         public bool IsActive { get; set; }
+        [Display(Name = "Silinmiş")]
         public bool IsDeleted { get; set; }
     }
 }

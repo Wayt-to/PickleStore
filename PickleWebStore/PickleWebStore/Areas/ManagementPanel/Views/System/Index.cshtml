@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Yetkiniz Bulunmuyor";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-size:72pt;text-align:center;color:#f74242">Ulaşmaya çalıştığınız sayfaya yetkiniz bulunmamakta !</h1>
+<div style="text-align:center;margin:50px">
+    <a class="btn-back" href="@Url.Action("Index","Home")">Anasayfaya Dön</a>
+    </div>
+
+@section styles
+    {
+    <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
+}

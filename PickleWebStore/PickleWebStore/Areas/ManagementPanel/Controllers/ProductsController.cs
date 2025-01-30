@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -20,7 +21,12 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.brand).Include(p => p.category).Include(p => p.manager);
+            var products = db.Products.Include(p => p.brand).Include(p => p.category).Include(p => p.manager).Where(p => p.IsDeleted == false);
+            return View(products.ToList());
+        }
+        public ActionResult AllIndex()
+        {
+            var products = db.Products.Include(p => p.brand).Include(p => p.category).Include(p => p.manager).Where(p=>p.IsDeleted==true);
             return View(products.ToList());
         }
 
@@ -52,20 +58,43 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Category_ID,Manager_ID,Brand_ID,Barcode,Name,Description,Price,Stock,ReorderLevel,CreationTime,Image,IsActive,IsDeleted")] Product product)
+        public ActionResult Create(Product model, HttpPostedFileBase productImage)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                model.CreationTime = DateTime.Now;
+                model.IsDeleted = false;
+                model.Manager_ID = (Session["manager"] as Manager).ID;
+                bool imageIsValid = false;
+                if (productImage != null)
+                {
+                    FileInfo fi = new FileInfo(productImage.FileName);
+                    if (fi.Extension == ".jpg" || fi.Extension == ".png" || fi.Extension == ".jpeg")
+                    {
+                        imageIsValid = true;
+                        Guid filename = Guid.NewGuid();
+                        string fullname = filename + fi.Extension;
+                        productImage.SaveAs(Server.MapPath("~/Assets/ProductImages/" + fullname));
+                        model.Image = fullname;
+                    }
+                }
+                else
+                {
+                    imageIsValid = true;
+                    model.Image = "none.png";
+                }
+                if (imageIsValid)
+                {
+                    db.Products.Add(model);
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
             }
-
-            ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Name", product.Brand_ID);
-            ViewBag.Category_ID = new SelectList(db.Categories, "ID", "Name", product.Category_ID);
-            ViewBag.Manager_ID = new SelectList(db.Managers, "ID", "Name", product.Manager_ID);
-            return View(product);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: ManagementPanel/Products/Edit/5
@@ -86,23 +115,43 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
             return View(product);
         }
 
-        // POST: ManagementPanel/Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Category_ID,Manager_ID,Brand_ID,Barcode,Name,Description,Price,Stock,ReorderLevel,CreationTime,Image,IsActive,IsDeleted")] Product product)
+        public ActionResult Edit(int id,Product model,HttpPostedFileBase productImage)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    if (productImage != null)
+                    {
+                        bool imageIsValid = false;
+                        FileInfo fi = new FileInfo(productImage.FileName);
+                        if (fi.Extension == ".jpg" || fi.Extension == ".png" || fi.Extension == ".jpeg")
+                        {
+                            imageIsValid = true;
+                            Guid filename = Guid.NewGuid();
+                            string fullname = filename + fi.Extension;
+                            productImage.SaveAs(Server.MapPath("~/Assets/ProductImages/" + fullname));
+                            model.Image = fullname;
+                        }
+                        if (imageIsValid)
+                        {
+                            db.SaveChanges();
+                        }
+                    }
+                    else
+                    {
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            ViewBag.Brand_ID = new SelectList(db.Brands, "ID", "Name", product.Brand_ID);
-            ViewBag.Category_ID = new SelectList(db.Categories, "ID", "Name", product.Category_ID);
-            ViewBag.Manager_ID = new SelectList(db.Managers, "ID", "Name", product.Manager_ID);
-            return View(product);
+            return View();
         }
 
         // GET: ManagementPanel/Products/Delete/5
@@ -131,6 +180,22 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult ReDelete(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Products");
+            }
+            Product prod = db.Products.Find(id);
+            if (prod == null)
+            {
+                return RedirectToAction("NotFound", "SystemMessages");
+            }
+            prod.IsDeleted = false;
+            db.Entry(prod).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -140,5 +205,6 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
             }
             base.Dispose(disposing);
         }
+        
     }
 }

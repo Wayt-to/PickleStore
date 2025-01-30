@@ -1,8 +1,100 @@
-﻿
+﻿@model IEnumerable<PickleWebStore.Models.Sale>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Satışlar</label>
+</div>
+<div class="pageContent">
+    <div class="pagetitle" style="background: linear-gradient(#2e65fc, #3100fc); color: white ">
+        <h2 style="margin:20px;">Satış Listesi</h2>
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th>
+                    Müşteri Adı
+                </th>
+                <th>
+                    Ürün Adı
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleTime)
+                </th>
+                <th>
+                    İşlem Durumu
+                </th>
 
+                <th>Seçenekler</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td>
+                        @item.SaleTime
+                    </td>
+                    <td>
+                        @if (!item.IsActive)
+                        {
+                            <span>Tamamlandı</span>
+                        }
+                        else
+                        {
+                            <span>Devam Ediyor</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.ID }, new { @class = "btnedit" })
+                                        @Html.ActionLink("Detaylar", "Details", new { id = item.ID }, new { @class = "btndetail" })
+                                        @Html.ActionLink("Tamamlandı", "Delete", new { id = item.ID }, new { @class = "btndelete" })
+                                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a class="btn-back" style=" border-radius: 3px; font-size: 14pt; margin: 10px; padding: 8px; background-color: #4fba4e " href="@Url.Action("AllIndex","Sales")">Tamamlanan İşlemleri Listele</a>
+    </div>
+</div>
+
+@section styles
+    {
+    <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
+}

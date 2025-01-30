@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace PickleWebStore.Models
 {
@@ -27,6 +24,7 @@ namespace PickleWebStore.Models
         public string Username { get; set; }
         [Display(Name = "Mail")]
         [Required(ErrorMessage = "Bu alan Boş bırakılamaz.")]
+        [DataType(DataType.EmailAddress)]
         [StringLength(maximumLength: 150, ErrorMessage = "Bu alan en fazla 150 karakter olmalıdır.")]
         public string Mail { get; set; }
         [Display(Name = "Şifre")]
@@ -43,6 +41,7 @@ namespace PickleWebStore.Models
         public DateTime LastLoginTime { get; set; }
         [Display(Name = "Durum")]
         public bool IsActive { get; set; }
+        [Display(Name = "Silinmiş")]
         public bool IsDeleted { get; set; }
     }
 }

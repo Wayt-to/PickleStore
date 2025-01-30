@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PickleWebStore.Areas.ManagementPanel.Filters;
+using PickleWebStore.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using PickleWebStore;
-using PickleWebStore.Areas.ManagementPanel.Filters;
-using PickleWebStore.Models;
 
 namespace PickleWebStore.Areas.ManagementPanel.Controllers
 {
@@ -20,22 +16,11 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.Where(c => c.IsDeleted == false).ToList());
         }
-
-        // GET: ManagementPanel/Categories/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult AllIndex()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
+            return View(db.Categories.Where(c => c.IsDeleted == true).ToList());
         }
 
         // GET: ManagementPanel/Categories/Create
@@ -113,9 +98,25 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
+            category.IsDeleted = true;
+            category.IsActive = false;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult ReDelete(int? id)
+        {
+            if (id != null)
+            {
+                Category category = db.Categories.Find(id);
+                category.IsDeleted = false;
+                category.IsActive = true;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -4,126 +4,92 @@
     ViewBag.Title = "Delete";
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.brand.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.brand.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.category.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.category.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.manager.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.manager.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Barcode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Barcode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReorderLevel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReorderLevel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDeleted)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Products")">Ürünler</a> >
+    <label>Ürün Sil</label>
 </div>
+
+<div class="pageContent">
+
+    <h2 style="margin-left:300px;font-size:25pt;padding:15px 10px;">Ürün Sil</h2>
+    <hr style="color:silver;width:60%;align-content:center;margin-left:290px;margin-top:6px;" />
+    <div style="margin-left:300px;margin-top:20px;" >
+        <h3 style="margin-bottom: 20px">Bu ürünü silmek istediğinize emin misiniz?</h3>
+        <table border="1" cellpadding="5" cellspacing="0" style="border:1px solid silver" width="600">
+            <tr>
+                <th align="left" width="30%">ID</th>
+                <td>@Model.ID</td>
+            </tr>
+            <tr>
+                <th align="left">Resim</th>
+                <td><img src="~/Assets/ProductImages/@Model.Image" alt="Alternate Text" style="width:150px;margin:10px;" /></td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Adı</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Barkodu</th>
+                <td>@Model.Barcode</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Kategorisi</th>
+                <td>@Model.category.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Markası</th>
+                <td>@Model.brand.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Stoğu</th>
+                <td>@Model.Stock</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Fiyatı</th>
+                <td>@Model.Price</td>
+            </tr>
+            <tr>
+                <th align="left">Ürün Durum</th>
+                <td>
+                    @if (@Model.IsActive)
+                    {
+                        <label>Aktif</label>
+                    }
+                    else
+                    {
+                        <label>Deaktif</label>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <th align="left">Silinme Durumu</th>
+                <td>
+                    @if (Model.IsDeleted)
+                    {
+                        <label>Silinmiş</label>
+                    }
+                    else
+                    {
+                        <label>Silinmemiş</label>
+                    }
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                @Html.ActionLink("Ürünler Listesine Dön", "Index", "", new { @class = "btn-back" ,@style="margin-left:700px"})
+                <input type="submit" value="Ürün Sil" class="btn-save" style="background-color:darkred" />
+            </div>
+            @Html.AntiForgeryToken()
+        }
+        
+    </div>
+
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assets/css/FormStyle.css" rel="stylesheet" />
+}

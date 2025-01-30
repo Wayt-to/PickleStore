@@ -20,9 +20,25 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Members
         public ActionResult Index()
         {
+            return View(db.Members.Where(m=>m.IsDeleted==false).ToList());
+        }
+        public ActionResult AllIndex()
+        {
             return View(db.Members.ToList());
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Status(int id, bool isActive)
+        {
+            var member = db.Members.Find(id);
+            if (member != null)
+            {
+                member.IsActive = !isActive;
+                db.SaveChanges();
+            }
 
+            return RedirectToAction("Index");
+        }
         // GET: ManagementPanel/Members/Details/5
         public ActionResult Details(int? id)
         {
@@ -38,61 +54,6 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
             return View(member);
         }
 
-        // GET: ManagementPanel/Members/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ManagementPanel/Members/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Surname,Username,Mail,Password,CreationTime,LastLoginTime,IsActive,IsDeleted")] Member member)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Members.Add(member);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(member);
-        }
-
-        // GET: ManagementPanel/Members/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
-        }
-
-        // POST: ManagementPanel/Members/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Surname,Username,Mail,Password,CreationTime,LastLoginTime,IsActive,IsDeleted")] Member member)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(member).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(member);
-        }
-
-        // GET: ManagementPanel/Members/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,15 +70,30 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
 
         // POST: ManagementPanel/Members/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Member member = db.Members.Find(id);
-            db.Members.Remove(member);
+            member.IsActive=false;
+            member.IsDeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult ReDelete(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Products");
+            }
+            Member prod = db.Members.Find(id);
+            if (prod == null)
+            {
+                return RedirectToAction("NotFound", "SystemMessages");
+            }
+            prod.IsDeleted = false;
+            db.Entry(prod).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

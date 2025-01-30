@@ -1,0 +1,97 @@
+﻿@using PickleWebStore.Models
+@{
+    PickleWebDBModel db = new PickleWebDBModel();
+    Member user = Session["user"] as Member;
+    int? count;
+    if (user!=null)
+    {
+        count= db.ShoppingCarts.Where(c => c.Member_ID == user.ID).Count();
+    }
+    else
+    {
+        count = null;
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    <div class="topbar">
+        <div class="boxed">
+            <div class="left">
+                <label style="font-family:Calibri;font-weight:400">2 GÜNDE TÜM TÜRKIYE'YE ÜCRETSİZ KARGO İMKANI!</label>
+            </div>
+            <div class="right">
+                @if (user != null)
+                {
+                    <a href="" style="text-decoration:none;color:whitesmoke;">@user.Username</a>
+                    <label>/</label>
+                    <a href="@Url.Action("Logout","Login")" style="text-decoration:none;color:whitesmoke;">Çıkış Yap</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index","Login")" style="text-decoration:none;color:whitesmoke;">Giriş Yap</a>
+                    <label>/</label>
+                    <a href="@Url.Action("Index","Register")" style="text-decoration:none;color:whitesmoke;">Kayıt Ol</a>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="boxed">
+        <div class="header">
+            <a href="@Url.Action("Index", "Home")"><img src="~/Assets/SiteImages/STORE.png" class="logo" style="margin-left: 30px;" /></a>
+            @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="search-main left">
+                    <input type="text" name="letters" placeholder="Aradığınız ürün, kategori veya markayı giriniz..." class="tbox-seach" />
+                    <button type="submit" class="fa-solid fa-magnifying-glass" style="color: #f7f7f7;margin-right:10px;">
+                    </button>
+                </div>
+            }
+            
+        <a href="@Url.Action("Index", "ShoppingCart")" class="right cart">
+            <img src="~/Assets/Icons/cart.png" width="40" />
+            @if (user!=null)
+            {
+                if (count > 0)
+                {
+                    <span class="cart-count">@count</span>
+                }
+            }
+            
+        </a>
+        </div>
+        <div class="clear"></div>
+        <div class="middlebar">
+            <div class="slogan">Tarladan kavanoza, <strong>leziz</strong> turşular</div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="boxed" style="margin-bottom:40px">
+        @RenderBody()
+    </div>
+    <div class="clear"></div>
+    <div class="mainFooter">
+        <div class="boxed" style="margin-top: 35px;">
+            <a href="#">İletişim</a>
+            <a href="#">Hakkımızda</a>
+        </div>
+    </div>
+</body>
+</html>
+

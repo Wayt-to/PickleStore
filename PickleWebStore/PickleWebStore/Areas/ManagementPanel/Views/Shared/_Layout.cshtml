@@ -24,14 +24,16 @@
             <li><a href="@Url.Action("Index","Products")">Ürünler</a></li>
             <li><a href="@Url.Action("Index","Categories")">Kategoriler</a></li>
             <li><a href="@Url.Action("Index","Brands")">Markalar</a></li>
+            <li><a href="@Url.Action("Index","Sales")">Satıslar</a></li>
             <li><a href="@Url.Action("Index","Managers")">Yöneticiler</a></li>
-
+            <li><a href="@Url.Action("Logout","Login")">Çıkıs</a></li>
         </ul>
+        
     </div>
 
     <div class="main-content">
         <div class="topbar">
-            <div class="userPanel">@manager.Name @manager.Surname</div>
+            <a style="text-decoration:none" href="@Url.Action("Edit","Managers",new { id = manager.ID })" class="userPanel">@manager.Name @manager.Surname</a>
         </div>
         <div class="content">
             @RenderBody()

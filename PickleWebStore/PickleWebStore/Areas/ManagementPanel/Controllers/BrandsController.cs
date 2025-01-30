@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PickleWebStore.Areas.ManagementPanel.Filters;
+using PickleWebStore.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using PickleWebStore;
-using PickleWebStore.Areas.ManagementPanel.Filters;
-using PickleWebStore.Models;
 
 namespace PickleWebStore.Areas.ManagementPanel.Controllers
 {
@@ -20,7 +16,11 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         // GET: ManagementPanel/Brands
         public ActionResult Index()
         {
-            return View(db.Brands.ToList());
+            return View(db.Brands.Where(b => b.IsDeleted == false).ToList());
+        }
+        public ActionResult AllIndex()
+        {
+            return View(db.Brands.Where(b => b.IsDeleted == true).ToList());
         }
 
         // GET: ManagementPanel/Brands/Details/5
@@ -113,7 +113,16 @@ namespace PickleWebStore.Areas.ManagementPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Brand brand = db.Brands.Find(id);
-            db.Brands.Remove(brand);
+            brand.IsDeleted = true;
+            brand.IsActive = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult ReDelete(int id)
+        {
+            Brand brand = db.Brands.Find(id);
+            brand.IsDeleted = false;
+            brand.IsActive = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

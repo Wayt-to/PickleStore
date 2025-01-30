@@ -1,0 +1,564 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rouge+Script&display=swap');
+*, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+button {
+    all: unset;
+}
+body {
+    font-family: Calibri;
+}
+.topbar {
+    width: 100%;
+    height: 20px;
+    background-color: #171E0E;
+    color: white;
+    padding:10px
+}
+    .topbar label{
+        padding-top:50px;
+    }
+.left{
+    float:left
+}
+.right {
+    float: right
+}
+.mainFooter {
+    bottom: 0;
+    height: 90px;
+    max-height: 90px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+    background-color: #f8f8f8;
+}
+
+
+    .mainFooter a {
+        text-decoration: none;
+        color:black;
+        padding: 25px;
+        
+    }
+.boxed {
+    width: 1170px;
+    margin:0px auto;
+}
+.logo{
+    float:left;
+    width:110px
+}
+.clear{
+    clear:both
+}
+.header {
+    margin: 10px 0;
+    padding: 10px 0;
+    align-content:center;
+}
+    
+.logomain {
+    text-decoration: none;
+    font-size: 18pt;
+    font-weight: 500;
+    color: black;
+    padding: 50px
+}
+.cart {
+    text-decoration: none;
+    font-size: 18pt;
+    font-weight: 500;
+    color: black;
+    padding: 50px
+}
+.cart-count {
+    position: absolute;
+    background-color: #4fb651;
+    color:white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+}
+.middlebar{
+    margin-top:15px;
+    padding:15px;
+    border-top:1px solid silver;
+    border-top-left-radius:-100px;
+    border-bottom:1px solid silver;
+}
+.slogan {
+    font-size: 28pt;
+    text-align: center;
+    font-family: "Mea Culpa", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.swiper {
+    width: 1170px;
+    height: 600px;
+}
+
+.search-main {
+    background-color: #171E0E;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 40px;
+    margin-left: 240px;
+    margin-top:45px;
+    width:400px;
+    text-align:center
+}
+.tbox-seach {
+    float: left;
+    background: none;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    font-size: 16px;
+    width: 400px;
+    padding:5px;
+    font-weight:600;
+    font-family:Calibri;
+}
+.btn-search{
+    display:flex;
+    justify-content:center;
+    font-size:16px;
+    float:right;
+    padding:5px;
+}
+.textArea{
+    width:500px;
+    max-width:500px;
+}
+.mainBase {
+    margin-top: 20px;
+}
+
+    .mainBase .categoriesBase {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .mainBase .categoriesBase .title {
+            min-height: 20px;
+            color: black;
+            text-align: center;
+            font-size: 25pt;
+            padding: 10px;
+        }
+
+        .mainBase .categoriesBase .content {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top:20px;
+        }
+
+            .mainBase .categoriesBase .content a {
+                font-size:20px;
+                font-weight:600;
+                justify-content:center;
+                text-align:center;
+                padding: 20px;
+                display: flex;
+                color: darkslategray;
+                text-decoration: none;
+                border: 1px solid darkslategray;
+                border-radius: 30px
+            }
+
+                .mainBase .categoriesBase .content a:hover {
+                    background-color: #efefef;
+                    cursor: pointer;
+                    font-weight: 900;
+                }
+
+    .mainBase .productBase {
+        width: 100%;
+        float: left;
+        margin-top: 20px;
+        margin-left:30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+
+        .mainBase .productBase .product {
+            width: 200px;
+            height: 300px;
+            max-height: 300px;
+            border: 1px solid silver;
+            border-radius: 10px;
+            float: left;
+            margin: 10px;
+            margin-top: 0px;
+            display: flex; 
+            flex-direction: column;
+        }
+
+            .mainBase .productBase .product:hover {
+                box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+            }
+
+            .mainBase .productBase .product .image {
+                margin-top: 0px;
+                flex-shrink: 0; 
+            }
+
+                .mainBase .productBase .product .image img {
+                    width: 200px;
+                    height:150px;
+                    min-height:150px;
+                    max-height: 150px;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius:10px;
+                    object-fit:cover;
+                }
+
+            .mainBase .productBase .product .name {
+                padding: 5px;
+                padding: 5px 0;
+                margin-top: 5px;
+                color: #121331;
+                font-weight: 900;
+                text-align: center;
+            }
+
+            .mainBase .productBase .product .price {
+                
+                padding: 5px;
+                color: #059669;
+                font-weight: 900;
+                font-size: 19pt;
+                text-align: center;
+            }
+
+                .mainBase .productBase .product .price label {
+                    text-decoration: line-through;
+                    color: #121331;
+                    font-weight: 100;
+                    padding-left: 10px;
+                    font-size: 12pt;
+                }
+
+            .mainBase .productBase .product .cartAdd {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+                .mainBase .productBase .product .cartAdd a {
+
+                    width:100px;
+                    display: block;
+                    background-color: #171E0E;
+                    color: white;
+                    text-align: center;
+                    padding: 7px;
+                    border-radius: 3px;
+                    text-decoration: none;
+                }
+
+                    .mainBase .productBase .product .cart a:hover {
+                        background-color: #046446;
+                    }
+.loginback {
+    background-image: url('../siteimages/image.png');
+    background-size:cover;
+}
+.loginPanel {
+    position: relative;
+    margin: auto;
+    margin-top: 150px;
+    border: 3px solid black;
+    width: 400px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    justify-content: center;
+}
+.loginPanel label{
+    font-size:15pt;
+    margin:30px;
+}
+    .loginPanel img {
+        text-align: center;
+        margin-top:20px;
+        margin-left:80px;
+        margin-bottom:20px;
+    }
+    .loginPanel .form-control {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid silver;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 14pt;
+        margin-left:30px;
+    }
+    .loginPanel .btn{
+        width:80%;
+        background-color:forestgreen;
+        color:white;
+        text-decoration:none;
+        text-align:center;
+        padding:10px;
+    }
+        .loginPanel .btn:hover {
+            background-color: #046446;
+            cursor: pointer;
+        }
+
+.row{
+    margin-bottom:15px;
+}
+.warningMessage{
+    color:red;
+    text-align:center;
+    margin:20px;
+}
+.successMessage {
+    color: darkslategrey;
+    text-align: center;
+    margin: 20px;
+}
+
+.detailBase {
+    width: 1120px;
+    float: left;
+    border: 1px solid silver;
+    border-radius: 7px;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+    .detailBase .image {
+        margin-top:30px;
+        margin-left:30px;
+        width: 430px;
+        border-radius:5px;
+        border:1px solid silver;
+        padding:10px;
+        float: left;
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+        .detailBase .image img {
+            object-fit:fill;
+            width: 100%;
+            max-height:424px;
+            justify-content: center;
+        }
+
+    .detailBase .detail {
+        width: 490px;
+        float: left;
+        margin-left:50px;
+    }
+        .detailBase .detail .brand {
+            color: #121331;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-right:5px;
+            text-decoration:none;
+            float:left;
+            font-size:22pt;
+        }
+        .detailBase .detail .urunbaslik {
+            color: #121331;
+            font-weight: 300;
+            margin-top: 15px;
+        }
+
+        .detailBase .detail .indirimli {
+            font-size: 20pt;
+            font-weight: 900;
+            color: #046446;
+        }
+
+
+        .detailBase .detail .detailsummary {
+            margin-top: 15px;
+            min-height: 150px;
+            background-color: #efefef;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .detailBase .detail .detailCategory {
+            margin-top: 15px;
+            color: dimgrey
+        }
+
+            .detailBase .detail .detailCategory a {
+                color: #92941B;
+                text-decoration: none;
+            }
+
+        .detailBase .detail .detailquantity {
+            margin-top: 15px;
+            margin-left:55px;
+        }
+
+            .detailBase .detail .detailquantity .quantity {
+                padding: 10px;
+            }
+
+            .detailBase .detail .detailquantity .addtoCart {
+                padding: 12px;
+                background-color: #92941B;
+                color: white;
+                border: none;
+                width: 250px;
+                border-radius: 3px;
+                margin-bottom: 30px;
+            }
+
+                .detailBase .detail .detailquantity .addtoCart:hover {
+                    background-color: #046446;
+                    cursor: pointer;
+                }
+
+    .detailBase .detaildescription {
+        margin-top: 50px;
+        padding: 20px;
+        color: dimgrey;
+        padding-top: 0;
+    }
+
+        .detailBase .detaildescription h3 {
+            padding-bottom: 15px;
+            color: #121331;
+        }
+.breadCrumb {
+    color: dimgray;
+    padding: 10px;
+    
+}
+
+    .breadCrumb a {
+        color: #92941B;
+        text-decoration: none;
+    }
+.mainBase .cartItem {
+    width: 75%;
+    display: flex;
+    border: 1px solid silver;
+    border-radius: 7px;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: white
+}
+    .mainBase .cartItem .image {
+        float: left;
+        max-width: 100px;
+        width: 100px;
+        height: 85px;
+        max-height: 85px;
+        border: 1px solid silver;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .mainBase .cartItem .itemLabel {
+        display:flex;
+        font-size: 20pt;
+        margin-left: 10px;
+        margin-top: 34px;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+    }
+    .mainBase .cartItem .itemBrand {
+        font-size: 13pt;
+        margin-top:20px;
+        padding:0;
+        margin-left:10px;
+        position:absolute;
+        text-decoration:none;
+        color:black;
+        
+    }
+.quantityAdjustPanel {
+    display:flex;
+    border: none;
+    justify-content: center;
+    padding: 10px;
+    height: 40px;
+    margin-top: 17px;
+}
+.decrease {
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 22pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #f54949;
+    border: 1px solid #f54949;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.decrease:hover {
+    background-color: #f54949;
+    color:white;
+}
+.increase {
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 22pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #35a561;
+    border: 1px solid #35a561;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+    .increase:hover {
+        background-color: #35a561;
+        color: white;
+    }
+.overall{
+    border:1px solid silver;
+    width:220px;
+    border-radius:10px;
+    padding:10px;
+}
+.gotoPay {
+    display: block;
+    border-radius: 5px;
+    border: 1px solid silver;
+    text-decoration: none;
+    color: white;
+    background-color: #396f2c;
+    padding: 10px;
+    font-size: 22pt;
+    margin-top: 10px;
+}
+    .gotoPay:hover {
+        background-color: darkgreen;
+        
+    }

@@ -1,91 +1,95 @@
 ﻿@model PickleWebStore.Models.Member
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Üye Detayı";
     Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Member</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastLoginTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastLoginTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDeleted)
-        </dd>
-
-    </dl>
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Members")">Üyeler</a> >
+    <label>Üye Detayı</label>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="pageContent">
+
+    <h2 style="margin-left:300px;font-size:25pt;padding:15px 10px;">Üye Detayları</h2>
+    <hr style="color:silver;width:60%;align-content:center;margin-left:290px;margin-top:6px;" />
+    <div style="margin-left:300px;margin-top:20px;">
+        <table border="1" cellpadding="5" cellspacing="0" style="border:1px solid silver" width="600">
+            <tr>
+                <th align="left" width="30%">ID</th>
+                <td>@Model.ID</td>
+            </tr>
+            <tr>
+                <th align="left">Üye Adı</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th align="left">Üye Soyadı</th>
+                <td>@Model.Surname</td>
+            </tr>
+            <tr>
+                <th align="left">Kullanıcı Adı</th>
+                <td>@Model.Username</td>
+            </tr>
+            <tr>
+                <th align="left">Üye Maili</th>
+                <td>@Model.Mail</td>
+            </tr>
+            <tr>
+                <th align="left">Üye Şifresi</th>
+                <td>@Model.Password</td>
+            </tr>
+            <tr>
+                <th align="left">Son Giriş Tarihi</th>
+                <td>@Model.LastLoginTime</td>
+            </tr>
+            <tr>
+                <th align="left">Kayıt Tarihi</th>
+                <td>@Model.CreationTime</td>
+            </tr>
+            <tr>
+                <th align="left">Aktiflik</th>
+                <td>
+                    @if (@Model.IsActive)
+                    {
+                        <label>Aktif</label>
+                    }
+                    else
+                    {
+                        <label>Deaktif</label>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <th align="left">Silinme Durumu</th>
+                <td>
+                    @if (Model.IsDeleted)
+                    {
+                        <label>Silinmiş</label>
+                    }
+                    else
+                    {
+                        <label>Silinmemiş</label>
+                    }
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                @Html.ActionLink("Üye Listesine Dön", "Index", "", new { @class = "btn-back", @style = "margin-left:700px" })
+               
+            </div>
+            @Html.AntiForgeryToken()
+        }
+
+    </div>
+
+</div>
+
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assets/css/FormStyle.css" rel="stylesheet" />
+}

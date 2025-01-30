@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PickleWebStore.Models.Brand>
+
+@{
+    ViewBag.Title = "Silinen Markalar";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <label>Silinen Markalar</label>
+</div>
+<div class="pageContent">
+    <div class="pagetitle" style="background: linear-gradient(#2e65fc, #3100fc); color: white ">
+        <h2 style="margin:20px;">Marka Listesi</h2>
+        @Html.ActionLink("Marka Oluştur", "Create")
+        <div style="clear:both"></div>
+    </div>
+    <div class="tableContent">
+        <table class="table">
+            <tr>
+                <th style="border-left:none">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    Aktiflik
+                </th>
+                <th>Seçenekler</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style="background-color: #ffdede">
+                    <td style="border-left:none;">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.ID }, new { @class = "btnedit" })
+                        @Html.ActionLink("Silme işlemini geri al", "ReDelete", new { id = item.ID }, new { @class = "btndetail", @style = "background-color:#973ec1" })
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="tablefooter">
+        <a class="btn-back" style=" border-radius: 18px;font-size: 14pt; margin: 10px; padding: 8px; background-color: #007aff " href="@Url.Action("Index","Brands")">Aktif Markaları Listele</a>
+    </div>
+</div>
+
+@section styles
+    {
+    <link href="~/Areas/ManagementPanel/Assets/css/TableStyle.css" rel="stylesheet" />
+}

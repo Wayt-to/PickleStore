@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace PickleWebStore.Models
 {
@@ -12,7 +8,7 @@ namespace PickleWebStore.Models
     {
         public Product()
         {
-            IsActive = true; IsDeleted = false;CreationTime = DateTime.Now;
+            IsActive = true; IsDeleted = false; CreationTime = DateTime.Now;
         }
         //ID isimli kolon otomatik olarak PRIMARY KEY ve IDENTITY(1,1) özelliğine sahip olur.
         public int ID { get; set; }
@@ -38,7 +34,7 @@ namespace PickleWebStore.Models
         public string Barcode { get; set; }
 
         //Required attribute'u kolonun veritabanında NOT NULL olmasını sağlar.
-        [Display(Name = "İsim")]
+        [Display(Name = "Ürün Adı")]
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
         [StringLength(maximumLength: 150, ErrorMessage = "En fazla 150 karakter olabilir.")]//Kolon nvarchar(150) oldu
         public string Name { get; set; }
@@ -48,8 +44,8 @@ namespace PickleWebStore.Models
         [StringLength(maximumLength: 500, ErrorMessage = "En fazla 500 karakter olabilir.")]
         public string Description { get; set; }
 
-        
-        [Display(Name ="Fiyat")]   
+
+        [Display(Name = "Fiyat")]
         public double Price { get; set; }
 
         [Display(Name = "Stok")]
@@ -60,7 +56,7 @@ namespace PickleWebStore.Models
 
         [Display(Name = "Ekleme Tarihi")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd-mm-yyyy}",ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CreationTime { get; set; }
         [Display(Name = "Ürün Resmi")]
         [StringLength(maximumLength: 100)]

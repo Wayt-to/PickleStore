@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\models\\generaldatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|c:\\users\\61vah\\source\\repos\\picklemainstoreapp\\picklemainstoreapp\\forms\\helpform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\helpform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\productsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\productsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,22 +23,6 @@
       "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\salesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\helpform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\helpform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\productsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\productsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\salesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\salesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\purchasesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\purchasesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\picklemainstoreapp\\forms\\customersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6BF11618-7399-4231-AFE0-6F46501B7330}|PickleMainStoreApp\\PickleMainStoreApp.csproj|solutionrelative:picklemainstoreapp\\forms\\customersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -54,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1996,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -67,65 +47,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HelpForm.cs",
-              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "RelativeToolTip": "PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T16:13:00.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HelpForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\HelpForm.cs",
-              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\HelpForm.cs [Design]",
-              "RelativeToolTip": "PickleMainStoreApp\\Forms\\HelpForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T16:12:23.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SalesForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\SalesForm.cs",
-              "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\SalesForm.cs",
-              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\SalesForm.cs [Design]",
-              "RelativeToolTip": "PickleMainStoreApp\\Forms\\SalesForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T20:46:48.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PurchasesForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\PurchasesForm.cs",
-              "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\PurchasesForm.cs",
-              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\PurchasesForm.cs [Design]",
-              "RelativeToolTip": "PickleMainStoreApp\\Forms\\PurchasesForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T21:20:30.235Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductsForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\ProductsForm.cs",
-              "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\ProductsForm.cs",
-              "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\ProductsForm.cs [Design]",
-              "RelativeToolTip": "PickleMainStoreApp\\Forms\\ProductsForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T16:07:30.409Z",
-              "EditorCaption": " [Design]"
             }
           ]
         },
@@ -141,14 +62,14 @@
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Models\\GeneralDataModel.cs",
               "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Models\\GeneralDataModel.cs",
               "RelativeToolTip": "PickleMainStoreApp\\Models\\GeneralDataModel.cs",
-              "ViewState": "AgIAAGMBAAAAAAAAAAAYwOQBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMABAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T11:53:00.094Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ProductsForm.cs",
               "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\ProductsForm.cs",
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\ProductsForm.cs",
@@ -156,12 +77,11 @@
               "RelativeToolTip": "PickleMainStoreApp\\Forms\\ProductsForm.cs",
               "ViewState": "AgIAAJAAAAAAAAAAAAAiwKsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T16:06:51.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T16:06:51.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PurchasesForm.cs",
               "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\PurchasesForm.cs",
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\PurchasesForm.cs",
@@ -169,12 +89,11 @@
               "RelativeToolTip": "PickleMainStoreApp\\Forms\\PurchasesForm.cs",
               "ViewState": "AgIAAMsAAAAAAAAAAAAAABUBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T21:20:31.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-02T21:20:31.988Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "SalesForm.cs",
               "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\SalesForm.cs",
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\SalesForm.cs",
@@ -186,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "CustomersForm.cs",
               "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\CustomersForm.cs",
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\CustomersForm.cs",
@@ -194,20 +113,18 @@
               "RelativeToolTip": "PickleMainStoreApp\\Forms\\CustomersForm.cs",
               "ViewState": "AgIAANAAAAAAAAAAAAA2wP0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:50:08.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T15:50:08.075Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "CustomersForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\CustomersForm.cs",
               "RelativeDocumentMoniker": "PickleMainStoreApp\\Forms\\CustomersForm.cs",
               "ToolTip": "C:\\Users\\61vah\\source\\repos\\PickleMainStoreApp\\PickleMainStoreApp\\Forms\\CustomersForm.cs [Design]",
               "RelativeToolTip": "PickleMainStoreApp\\Forms\\CustomersForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:50:05.492Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-24T15:50:05.492Z"
             }
           ]
         }

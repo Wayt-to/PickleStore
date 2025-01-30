@@ -1,0 +1,70 @@
+﻿@model PickleWebStore.Models.Member
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kaydol</title>
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+</head>
+<body class="loginback">
+    <div>
+        <div class="loginPanel" style="margin-top:60px;">
+            <a style="text-decoration:none;font-size:40pt;float:left;margin-left:15px;color:darkolivegreen" href="@Url.Action("Index","Home")"><</a>
+            @using (Html.BeginForm())
+            {
+                <img src="~/Assets/SiteImages/STORE.png" width="120" style="margin-left:100px;" />
+                <div class="row" style="margin-bottom:10px;">
+                    @Html.LabelFor(x => x.Name)
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    <label class="warningMessage">@Html.ValidationMessageFor(x => x.Name)</label>
+                </div>
+                <div class="row" style="margin-bottom:10px;">
+                    @Html.LabelFor(x => x.Surname)
+                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                    <label class="warningMessage">@Html.ValidationMessageFor(x => x.Surname)</label>
+                </div>
+                <div class="row" style="margin-bottom:10px;">
+                    @Html.LabelFor(x => x.Username)
+                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                    <label class="warningMessage">@Html.ValidationMessageFor(x => x.Username)</label>
+                </div>
+                <div class="row" style="margin-bottom:10px;">
+                    @Html.LabelFor(x => x.Mail)
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                    <label class="warningMessage">@Html.ValidationMessageFor(x => x.Mail)</label>
+
+                </div>
+                <div class="row" style="margin-bottom:10px;">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                    <label class="warningMessage">@Html.ValidationMessageFor(x => x.Password)</label>
+                </div>
+                if (ViewBag.Warning != null)
+                {
+                    <div class="warningMessage">
+                        <p>@ViewBag.Warning</p>
+                    </div>
+                }
+
+                if (ViewBag.Success != null)
+                {
+                    <div class="successMessage">
+                        <p>@ViewBag.Success</p>
+                    </div>
+                }
+                <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                    <button type="submit" class="btn">Kayıt Ol</button>
+                </div>
+                <div class="row" style="text-align: center;margin-bottom:30px;"><a style="text-decoration:none;color:darkolivegreen;" href="@Url.Action("Index","Login")">Giriş Yap</a></div>
+
+            }
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Xml;
 
 namespace PickleWebStore.Models
@@ -9,12 +8,12 @@ namespace PickleWebStore.Models
     public class GeneralDataModel
     {
         PickleWebDBModel db = new PickleWebDBModel();
-        public bool HasXMLChanged(string filepath,DateTime lastChecked)
+        public bool HasXMLChanged(string filepath, DateTime lastChecked)
         {
             DateTime lastModified = System.IO.File.GetLastWriteTime(filepath);
             return lastModified > lastChecked;
         }
-        public List<XmlNode> Comparer(string xmlFilepath,List<string> existingData)
+        public List<XmlNode> Comparer(string xmlFilepath, List<string> existingBarcodes)
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(xmlFilepath);
@@ -34,20 +33,28 @@ namespace PickleWebStore.Models
                 string brand = nodeBrand != null ? nodeBrand.InnerText : null;
                 string category = nodeCategory != null ? nodeCategory.InnerText : null;
                 string price = nodePrice != null ? nodePrice.InnerText : null;
-
-                if (!string.IsNullOrEmpty(barcode))
+                foreach (string barc in existingBarcodes)
                 {
-                    if (!existingData.Contains(name) || !existingData.Contains(brand) || !existingData.Contains(category) || !existingData.Contains(price)|| !existingData.Contains(barcode))
+                    Product p = db.Products.FirstOrDefault(pro => pro.Barcode == barc);
+                    if (p != null && barcode != null && p.Barcode == barcode)
+                    {
+                        if (p.brand.Name != brand || p.category.Name != category || p.Price.ToString() != price || p.Name != name)
+                        {
+                            newData.Add(item);
+                            break;
+                        }
+
+                    }
+                    if (!existingBarcodes.Contains(barcode))
                     {
                         newData.Add(item);
+                        break;
                     }
-                    
                 }
+
             }
             return newData;
         }
-
-
         public List<string> GetXmlBarcodes(string xmlFilepath)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -61,13 +68,12 @@ namespace PickleWebStore.Models
                 string barcode = item["Barcode"].InnerText;
                 xbarcodes.Add(barcode);
             }
-            
+
             List<string> dbBarcodes = db.Products.Where(p => p.IsActive == true).Select(p => p.Barcode).ToList();
 
             List<string> removedProductBarcs = dbBarcodes.Except(xbarcodes).ToList();
             return removedProductBarcs;
         }
-
         public int GetOrAddCategoryId(string categoryName)
         {
             var category = db.Categories.SingleOrDefault(c => c.Name == categoryName);
@@ -77,7 +83,7 @@ namespace PickleWebStore.Models
                 db.Categories.Add(category);
                 db.SaveChanges();
             }
-            return category.ID  ; 
+            return category.ID;
         }
         public int GetOrAddBrandId(string BrandName)
         {
@@ -90,6 +96,7 @@ namespace PickleWebStore.Models
             }
             return brand.ID;
         }
+
 
     }
 

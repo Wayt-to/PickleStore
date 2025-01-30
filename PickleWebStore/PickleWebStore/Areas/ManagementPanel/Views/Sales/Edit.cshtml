@@ -1,0 +1,101 @@
+﻿@model PickleWebStore.Models.Sale
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/ManagementPanel/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> >
+    <a href="@Url.Action("Index", "Sales")">Satışlar</a> >
+    <label>Satış Düzenle</label>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(model => model.IsDeleted);@Html.HiddenFor(model => model.Product_ID);
+    @Html.HiddenFor(model => model.Member_ID);@Html.HiddenFor(model => model.Price);
+    @Html.HiddenFor(model => model.TotalPrice);@Html.HiddenFor(model => model.Quantity);
+    <div class="form-horizontal">
+        <h2 style="margin-left:300px;font-size:25pt;padding:15px 10px;">Satışı Düzenle</h2>
+        <hr style="color:silver;width:60%;align-content:center;margin-left:290px;margin-top:6px;" />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="left-part" style="margin-left:400px;min-width:300px">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Product.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Model.Product.Name
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class = "control-label col-md-2"> Sipariş Eden</label>
+                <div class="col-md-10">
+                    @Model.Member.Name @Model.Member.Surname
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div>
+                        @Model.Price TL
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div >
+                        @Model.Quantity
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TotalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div >
+                        @Model.TotalPrice TL
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-part">
+            <div class="form-group">
+                @Html.LabelFor(model => model.SaleTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div >
+                        @Model.SaleTime
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <div>
+                        @Html.ActionLink("Geri Dön", "Index", "", new { @class = "btn-back", @style = "margin-left:100px" })
+                        <input type="submit" value="Düzenle" class="btn-save" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
