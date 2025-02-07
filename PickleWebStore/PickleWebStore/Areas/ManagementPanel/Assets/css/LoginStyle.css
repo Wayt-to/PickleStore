@@ -1,5 +1,7 @@
 ﻿body {
     font-family: Calibri;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     background-color: #DDDDDD;
     background-image: url('../pageimages/bck2.jpg');

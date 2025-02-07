@@ -1,4 +1,5 @@
 ﻿using PickleWebStore.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 namespace PickleWebStore.Controllers
@@ -6,6 +7,7 @@ namespace PickleWebStore.Controllers
     public class HomeController : Controller
     {
         PickleWebDBModel db = new PickleWebDBModel();
+
         // GET: Home
         public ActionResult Index()
         {
@@ -20,7 +22,7 @@ namespace PickleWebStore.Controllers
 
             ViewBag.categories = ViewBag.categories = popularCategories;
 
-            return View(db.Products.Where(p => p.IsDeleted == false && p.IsActive == true).ToList());
+            return View(db.Products.Where(p => p.IsDeleted == false && p.IsActive == true && p.Stock > 0).ToList());
         }
         public ActionResult Search(string letters)
         {
@@ -29,7 +31,7 @@ namespace PickleWebStore.Controllers
                 ViewBag.search = letters;
                 var products = db.Products
                     .Where(p => p.Name.Contains(letters) || p.Description.Contains(letters) || p.category.Name.Contains(letters))
-                    .Where(p => p.IsActive == true && p.IsDeleted == false)
+                    .Where(p => p.IsActive == true && p.IsDeleted == false && p.Stock > 0)
                     .ToList();
                 return View(products);
             }
@@ -46,7 +48,7 @@ namespace PickleWebStore.Controllers
                 Category cat = db.Categories.Find(id);
                 ViewBag.cat = cat.Name;
                 var products = db.Products
-                    .Where(p => p.Category_ID == id && p.IsActive == true && p.IsDeleted == false)
+                    .Where(p => p.Category_ID == id && p.IsActive == true && p.IsDeleted == false && p.Stock > 0)
                     .ToList();
                 return View(products);
             }
@@ -64,7 +66,7 @@ namespace PickleWebStore.Controllers
                 Brand brand = db.Brands.Find(id);
                 ViewBag.cat = brand.Name;
                 var products = db.Products
-                    .Where(p => p.Brand_ID == id && p.IsActive == true && p.IsDeleted == false)
+                    .Where(p => p.Brand_ID == id && p.IsActive == true && p.IsDeleted == false && p.Stock > 0)
                     .ToList();
                 return View(products);
             }
@@ -74,6 +76,21 @@ namespace PickleWebStore.Controllers
             }
 
         }
+        public ActionResult Profile(int? id)
+        {
+            if (Session["user"] != null)
+            {
+                Member user = Session["user"] as Member;
+                List<Sale> sales = db.Sales.Where(s => s.Member_ID == user.ID).ToList();
+                return View(sales);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
 
     }
 }

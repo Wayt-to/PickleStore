@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PickleWebStore.Models
@@ -43,5 +44,6 @@ namespace PickleWebStore.Models
         public bool IsActive { get; set; }
         [Display(Name = "Silinmiş")]
         public bool IsDeleted { get; set; }
+        public virtual ICollection<ShoppingCart> ShoppingCart { get; set; }
     }
 }

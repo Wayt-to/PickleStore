@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TursuBankDBModelStoreContainer" CdmEntityContainer="TursuBankDBEntities">
+    <EntitySetMapping Name="Hesaplar">
+      <EntityTypeMapping TypeName="TursuBankDBModel.Hesaplar">
+        <MappingFragment StoreEntitySet="Hesaplar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kartlar">
+      <EntityTypeMapping TypeName="TursuBankDBModel.Kartlar">
+        <MappingFragment StoreEntitySet="Kartlar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HesapID" ColumnName="HesapID" />
+          <ScalarProperty Name="KartNo" ColumnName="KartNo" />
+          <ScalarProperty Name="SonKullanimAy" ColumnName="SonKullanimAy" />
+          <ScalarProperty Name="SonKullanimYil" ColumnName="SonKullanimYil" />
+          <ScalarProperty Name="CVV" ColumnName="CVV" />
+          <ScalarProperty Name="KartDurum" ColumnName="KartDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musteriler">
+      <EntityTypeMapping TypeName="TursuBankDBModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Isim" ColumnName="Isim" />
+          <ScalarProperty Name="Soyisim" ColumnName="Soyisim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanalPosMusterileri">
+      <EntityTypeMapping TypeName="TursuBankDBModel.SanalPosMusterileri">
+        <MappingFragment StoreEntitySet="SanalPosMusterileri">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirmaAdi" ColumnName="FirmaAdi" />
+          <ScalarProperty Name="SaticiKodu" ColumnName="SaticiKodu" />
+          <ScalarProperty Name="SaticiSifre" ColumnName="SaticiSifre" />
+          <ScalarProperty Name="WebSitesi" ColumnName="WebSitesi" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

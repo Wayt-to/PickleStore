@@ -1,0 +1,49 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\61vah\\source\\repos\\TursuBankAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{78C5C375-D623-47E8-BC23-B4472F463C3A}|TursuBankAPI\\TursuBankAPI.csproj|c:\\users\\61vah\\source\\repos\\tursubankapi\\tursubankapi\\api\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78C5C375-D623-47E8-BC23-B4472F463C3A}|TursuBankAPI\\TursuBankAPI.csproj|solutionrelative:tursubankapi\\api\\paycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 209,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PAYController.cs",
+              "DocumentMoniker": "C:\\Users\\61vah\\source\\repos\\TursuBankAPI\\TursuBankAPI\\API\\PAYController.cs",
+              "RelativeDocumentMoniker": "TursuBankAPI\\API\\PAYController.cs",
+              "ToolTip": "C:\\Users\\61vah\\source\\repos\\TursuBankAPI\\TursuBankAPI\\API\\PAYController.cs",
+              "RelativeToolTip": "TursuBankAPI\\API\\PAYController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T21:30:17.008Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

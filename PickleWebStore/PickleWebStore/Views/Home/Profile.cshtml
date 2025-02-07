@@ -1,0 +1,33 @@
+﻿@model List<PickleWebStore.Models.Sale>
+@{
+    ViewBag.Title = "Siparişlerim";
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> ><label> Siparişler</label>
+</div>
+@if (Model != null && Model.Count > 0)
+{
+    <hr style="color:silver;margin-bottom:10px;"/>
+    foreach (var item in Model)
+    {
+        <div class="orderItem">
+
+            <img src="~/Assets/ProductImages/@item.Product.Image" width="60" class="left" style="margin:20px;" />
+            <h3>Ürün Adı: @item.Product.Name</h3>
+            <div style="margin-bottom:20px;">
+                <p>Fiyat: @item.Price TL</p>
+                <p>Adet: @item.Quantity</p>
+                <p>Toplam Fiyat: @item.TotalPrice TL</p>
+                <p>Sipariş Adresi: @item.Address</p>
+            </div>
+            <hr style="margin-bottom:10px;" />
+        </div>
+    }
+}
+else
+{
+    <p>Siparişleriniz bulunmamaktadır.</p>
+}

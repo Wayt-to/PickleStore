@@ -59,18 +59,25 @@
                     </button>
                 </div>
             }
-            
-        <a href="@Url.Action("Index", "ShoppingCart")" class="right cart">
-            <img src="~/Assets/Icons/cart.png" width="40" />
-            @if (user!=null)
-            {
-                if (count > 0)
+
+            <a href="@Url.Action("Index", "ShoppingCart")" class="right cart">
+                <img src="~/Assets/Icons/cart.png" width="40" />
+                @if (user != null)
                 {
-                    <span class="cart-count">@count</span>
+                    if (count > 0)
+                    {
+                        <span class="cart-count">@count</span>
+                    }
                 }
+
+            </a>
+            @if (user != null)
+            {
+                <a href="@Url.Action("Profile", "Home")">
+                    <img src="~/Assets/SiteImages/user.png" width="40" class="right cart" />
+                </a>
             }
-            
-        </a>
+
         </div>
         <div class="clear"></div>
         <div class="middlebar">

@@ -1,0 +1,129 @@
+﻿@model PickleWebStore.Data.ViewModels.PaymentViewModel
+@using PickleWebStore.Models
+@{
+    ViewBag.Title = "Ödeme";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    List<ShoppingCart> c = ViewBag.cart as List<ShoppingCart>;
+    double TotalAmount = 0;
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+}
+
+<div class="breadCrumb">
+    <a href="@Url.Action("Index", "Home")">Anasayfa</a> ><a href="@Url.Action("Index", "ShoppingCart")">Sepetim</a> >
+    <label>Ödeme</label>
+</div>
+
+<div class="Paymentcontainer">
+    @using (Html.BeginForm("Index", "Checkout", FormMethod.Post))
+    {
+        <div class="Paymentcontent">
+            
+            @Html.AntiForgeryToken()
+
+            <h2>Kart Bilgileri</h2>
+
+            <div class="row">
+                @Html.LabelFor(m => m.CardNumber)
+                @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.CardNumber, new
+                {
+                    @class = "form-control",
+                    type = "text",
+                    placeholder = "XXXX XXXX XXXX XXXX",
+                    maxlength = 19,
+                    @pattern = "[0-9 ]*",
+                    @oninput = "this.value = this.value.replace(/[^0-9]/g, '').replace(/(.{4})/g, '$1 ').trim();"
+                })
+            </div>
+
+            <div class="dropdownrow">
+                @Html.ValidationMessageFor(m => m.ExpirationMonth, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.ExpirationMonth, new { @class = "form-control", placeholder = "Ay", maxlength = 2 })
+
+                @Html.ValidationMessageFor(m => m.ExpirationYear, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.ExpirationYear, new { @class = "form-control", placeholder ="Yıl", maxlength = 4 })
+
+                @Html.ValidationMessageFor(m => m.CVV, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.CVV, new
+                {
+                    @class = "form-control",
+                    type = "text",
+                    placeholder = "CVV",
+                    maxlength = 3,
+                    @style = "margin-right:5px;",
+                    @pattern = "[0-9]*",
+                    @oninput = "this.value=this.value.replace(/[^0-9]/g,'');"
+                })
+            </div>
+
+            <div class="row">
+                <label>Kart Sahibinin Adı Soyadı</label>
+                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+            </div>
+
+            <h2>Fatura Bilgileri</h2>
+
+            <div class="row">
+                @Html.LabelFor(m => m.FullName)
+                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.City)
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="Ordercontent">
+            <h2>Sipariş Bilgileri</h2>
+            @if (c != null && c.Any())
+            {
+                foreach (var item in c)
+                {
+                    if (item != null && item.Product != null)
+                    {
+                        <div class="cartItem">
+                            <a href="@Url.Action("Detail", "Product", new { id = item.Product_ID })"><img src="~/Assets/ProductImages/@item.Product.Image" alt="Alternate Text" style="float: left;width:50px;max-width:45px;" /></a>
+                            <a style="font-size:15pt;text-decoration:none;color:black;float:left;padding:10px;" href="@Url.Action("Detail", "Product", new { id = item.Product_ID })">@item.Product.Name</a>
+
+                            <label style="font-size:20px;float:right;margin-top:10px">
+                                @(item.Product.Price * item.Quantity) TL
+                            </label>
+                        </div>
+                        TotalAmount += (item.Product.Price * item.Quantity);
+                    }
+                    else
+                    {
+                        <p>Ürün bilgisi bulunamadı.</p>
+                    }
+
+                }
+            }
+            else
+            {
+                <p>Sepetiniz Boş.</p>
+            }
+            <div style="padding:20px;">
+                <div style="clear:both"></div>
+                <h3 style="float:left">Toplam Tutar &nbsp;</h3>
+                <h3 style="float:right;">@TotalAmount TL</h3>
+                <input type="submit" value="Ödeme Yap" style="margin-bottom:10px;" />
+                <div style="text-align: center">
+
+                    @if (@ViewBag.message != null)
+                    {
+                        <label style="color:red;font-size:15pt;">@ViewBag.message*</label>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div style="clear:both"></div>
+    }
+</div>

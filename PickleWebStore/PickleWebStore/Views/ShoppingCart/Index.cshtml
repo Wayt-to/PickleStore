@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "Sepetim";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    decimal total=0;
+    foreach (var item in Model)
+    {
+        total += item.Quantity * (decimal)item.Product.Price;
+    }
 }
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,15 +23,15 @@
         <div style="float:right;text-align:center">
             <div class="overall">
                 <h2>Sepet Özeti</h2>
-                <label style="margin:5px;">Ürün Toplamı    &emsp;&emsp;&emsp;&emsp;000TL</label>
+                <label style="margin:5px;">Ürün Toplamı   &emsp;&emsp;&emsp;&emsp;@total TL</label>
                 <label style="margin: 5px; color: forestgreen ">Kargo Ücreti &emsp;&emsp;&emsp;&nbsp;Ücretsiz!</label>
                 <hr style="color: #E6E6E6;margin-top:10px;" />
-                <h3 style="margin-top:10px;">Toplam  &emsp;&emsp;&emsp;&emsp;&emsp;<label style="color:#396f2c">000tl</label></h3>
+                <h3 style="margin-top:10px;">Toplam  &emsp;&emsp;&emsp;&emsp;&emsp;<label style="color:#396f2c">@total TL</label></h3>
             </div>
-            <a class="gotoPay" href="#">Ödemeye İlerle</a>
+            <a class="gotoPay" href="@Url.Action("Index","Checkout")">Ödemeye İlerle</a>
         </div>
-        
-        
+
+
         @foreach (var item in Model)
         {
             <div class="cartItem">
@@ -39,20 +44,26 @@
                     </div>
                     <div class="clear"></div>
                     <div class="quantityAdjustPanel">
-                        <a href="#" class="decrease">-</a>
+                        <a href="@Url.Action("ChangeQuantity", "ShoppingCart", new { productId = item.Product.ID, increase = false })" class="decrease">-</a>
                         <input type="text" name="quantity" value="@item.Quantity" readonly style="text-align: center; width: 35px; margin-left: 5px; margin-right: 5px;text-shadow:none" />
-                        <a href="#" class="increase">+</a>
+                        <a href="@Url.Action("ChangeQuantity", "ShoppingCart", new { productId = item.Product.ID, increase = true })" class="increase">+</a>
                     </div>
                     <div style="font-size:22px;margin-top:30px;margin-left:100px;">
                         @(item.Product.Price * item.Quantity) TL
                     </div>
                     <div>
-                        <a href="#">
-                            <img style="width:25px;margin-top:30px;margin-left:30px" src="~/Assets/SiteImages/recycle-bin.png" />
+                        <a href="@Url.Action("DeleteCart", "ShoppingCart", new { productId = item.Product.ID })">
+                            <img style="width: 25px; margin-top: 30px; position: absolute;margin-left:20px;" src="~/Assets/SiteImages/recycle-bin.png" />
                         </a>
                     </div>
+                    <div class="clear"></div>
                 </div>
             }
+        @if (ViewBag.Error!=null)
+        {
+            <div style="color:red;font-size:15pt">@ViewBag.Error*</div>
+        }
+
     </div>
 
 </body>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TursuBankDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hesaplar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriID" Type="int" />
+          <Property Name="Bakiye" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Kartlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HesapID" Type="int" />
+          <Property Name="KartNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SonKullanimAy" Type="nvarchar" MaxLength="2" />
+          <Property Name="SonKullanimYil" Type="nvarchar" MaxLength="4" />
+          <Property Name="CVV" Type="nvarchar" MaxLength="3" />
+          <Property Name="KartDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Isim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyisim" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SanalPosMusterileri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirmaAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaticiKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaticiSifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebSitesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Hesaplar_Musteriler">
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="0..1" />
+          <End Role="Hesaplar" Type="Self.Hesaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteriler">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hesaplar">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kartlar_Hesaplar">
+          <End Role="Hesaplar" Type="Self.Hesaplar" Multiplicity="0..1" />
+          <End Role="Kartlar" Type="Self.Kartlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hesaplar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kartlar">
+              <PropertyRef Name="HesapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TursuBankDBModelStoreContainer">
+          <EntitySet Name="Hesaplar" EntityType="Self.Hesaplar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kartlar" EntityType="Self.Kartlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SanalPosMusterileri" EntityType="Self.SanalPosMusterileri" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Hesaplar_Musteriler" Association="Self.FK_Hesaplar_Musteriler">
+            <End Role="Musteriler" EntitySet="Musteriler" />
+            <End Role="Hesaplar" EntitySet="Hesaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kartlar_Hesaplar" Association="Self.FK_Kartlar_Hesaplar">
+            <End Role="Hesaplar" EntitySet="Hesaplar" />
+            <End Role="Kartlar" EntitySet="Kartlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TursuBankDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hesaplar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriID" Type="Int32" />
+          <Property Name="Bakiye" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Musteriler" Relationship="Self.FK_Hesaplar_Musteriler" FromRole="Hesaplar" ToRole="Musteriler" />
+          <NavigationProperty Name="Kartlar" Relationship="Self.FK_Kartlar_Hesaplar" FromRole="Hesaplar" ToRole="Kartlar" />
+        </EntityType>
+        <EntityType Name="Kartlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HesapID" Type="Int32" />
+          <Property Name="KartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SonKullanimAy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SonKullanimYil" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CVV" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="KartDurum" Type="Boolean" />
+          <NavigationProperty Name="Hesaplar" Relationship="Self.FK_Kartlar_Hesaplar" FromRole="Kartlar" ToRole="Hesaplar" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Isim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyisim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hesaplar" Relationship="Self.FK_Hesaplar_Musteriler" FromRole="Musteriler" ToRole="Hesaplar" />
+        </EntityType>
+        <EntityType Name="SanalPosMusterileri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaticiKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaticiSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebSitesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Hesaplar_Musteriler">
+          <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="0..1" />
+          <End Role="Hesaplar" Type="Self.Hesaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteriler">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hesaplar">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kartlar_Hesaplar">
+          <End Role="Hesaplar" Type="Self.Hesaplar" Multiplicity="0..1" />
+          <End Role="Kartlar" Type="Self.Kartlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hesaplar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kartlar">
+              <PropertyRef Name="HesapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TursuBankDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hesaplar" EntityType="Self.Hesaplar" />
+          <EntitySet Name="Kartlar" EntityType="Self.Kartlar" />
+          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
+          <EntitySet Name="SanalPosMusterileri" EntityType="Self.SanalPosMusterileri" />
+          <AssociationSet Name="FK_Hesaplar_Musteriler" Association="Self.FK_Hesaplar_Musteriler">
+            <End Role="Musteriler" EntitySet="Musteriler" />
+            <End Role="Hesaplar" EntitySet="Hesaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kartlar_Hesaplar" Association="Self.FK_Kartlar_Hesaplar">
+            <End Role="Hesaplar" EntitySet="Hesaplar" />
+            <End Role="Kartlar" EntitySet="Kartlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TursuBankDBModelStoreContainer" CdmEntityContainer="TursuBankDBEntities">
+          <EntitySetMapping Name="Hesaplar">
+            <EntityTypeMapping TypeName="TursuBankDBModel.Hesaplar">
+              <MappingFragment StoreEntitySet="Hesaplar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+                <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kartlar">
+            <EntityTypeMapping TypeName="TursuBankDBModel.Kartlar">
+              <MappingFragment StoreEntitySet="Kartlar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HesapID" ColumnName="HesapID" />
+                <ScalarProperty Name="KartNo" ColumnName="KartNo" />
+                <ScalarProperty Name="SonKullanimAy" ColumnName="SonKullanimAy" />
+                <ScalarProperty Name="SonKullanimYil" ColumnName="SonKullanimYil" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="KartDurum" ColumnName="KartDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musteriler">
+            <EntityTypeMapping TypeName="TursuBankDBModel.Musteriler">
+              <MappingFragment StoreEntitySet="Musteriler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Isim" ColumnName="Isim" />
+                <ScalarProperty Name="Soyisim" ColumnName="Soyisim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SanalPosMusterileri">
+            <EntityTypeMapping TypeName="TursuBankDBModel.SanalPosMusterileri">
+              <MappingFragment StoreEntitySet="SanalPosMusterileri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirmaAdi" ColumnName="FirmaAdi" />
+                <ScalarProperty Name="SaticiKodu" ColumnName="SaticiKodu" />
+                <ScalarProperty Name="SaticiSifre" ColumnName="SaticiSifre" />
+                <ScalarProperty Name="WebSitesi" ColumnName="WebSitesi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

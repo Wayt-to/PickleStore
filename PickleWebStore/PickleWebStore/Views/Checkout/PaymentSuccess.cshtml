@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    <link href="~/Assets/css/UIMainStyle.css" rel="stylesheet" />
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Siparişiniz Alındı</title>
+</head>
+<body>
+    <div style="text-align:center;margin:20px;font-size:20pt;margin-bottom:40px;">
+        Siparişiniz başarıyla alındı, afiyet olsun
+    </div>
+    <div style="text-align: center;">
+        <a href="@Url.Action("Index","Home")" style="text-decoration: none; color: white; background-color: cadetblue; padding: 11px; margin-top: 20px;">Ana Sayfaya Dön</a>
+        <a href="@Url.Action("Index","Home")" style="text-decoration: none; color: white; background-color: slateblue; padding: 11px; margin-top: 20px;">Siparişlerim</a>
+    </div>
+    
+</body>
+</html>
+

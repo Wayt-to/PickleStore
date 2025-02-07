@@ -16,7 +16,7 @@ namespace PickleWebStore.Controllers
                 int id = (Session["user"] as Member).ID;
 
                 List<ShoppingCart> cart = db.ShoppingCarts
-                                        .Where(s => s.Member_ID == id).Include(s => s.Product).ToList();
+                                        .Where(s => s.Member_ID == id && s.Product.Stock > 0).Include(s => s.Product).ToList();
 
                 return View(cart);
             }
@@ -68,6 +68,53 @@ namespace PickleWebStore.Controllers
             }
 
             return RedirectToAction("Index", "ShoppingCart");
+        }
+        public ActionResult ChangeQuantity(int productId, bool increase)
+        {
+            if (Session["user"] != null)
+            {
+                int memberId = (Session["user"] as Member).ID;
+
+                ShoppingCart cart = db.ShoppingCarts.FirstOrDefault(s => s.Member_ID == memberId && s.Product_ID == productId);
+                Product product = db.Products.Find(productId);
+
+                if (cart != null && product != null)
+                {
+                    if (increase)
+                    {
+                        if (cart.Quantity + 1 > product.Stock)
+                        {
+                            ViewBag.Error = $"Üzgünüz, '{product.Name}' ürünü daha fazla stok yok.";
+                            return View("Index", db.ShoppingCarts.Where(s => s.Member_ID == memberId).Include(s => s.Product).ToList());
+                        }
+                        cart.Quantity++;
+                    }
+                    else if (cart.Quantity > 1)
+                    {
+                        cart.Quantity--;
+                    }
+
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteCart(int productId)
+        {
+            if (Session["user"] != null)
+            {
+                int memberId = (Session["user"] as Member).ID;
+
+                ShoppingCart cart = db.ShoppingCarts.FirstOrDefault(s => s.Member_ID == memberId && s.Product_ID == productId);
+
+                if (cart != null)
+                {
+                    db.ShoppingCarts.Remove(cart);
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
